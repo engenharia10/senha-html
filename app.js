@@ -42,27 +42,9 @@
         return t % 10000;
     }
 
-    /** Nível 1 (Usuário) */
-    function geraSenhaNivel1(senha6) {
-        const p1 = Math.floor(senha6 / 1000);
-        const p2 = senha6 % 1000;
-        let t = (p1 * 13) ^ (p2 * 19);
-        t = t * 31847;
-        return t % 10000;
-    }
-
     /** Nível 2 (Técnico) */
     function geraSenhaNivel2(senha6) {
         return geraSenha4Digitos(senha6);
-    }
-
-    /** Nível 3 (Admin) */
-    function geraSenhaNivel3(senha6) {
-        const p1 = Math.floor(senha6 / 1000);
-        const p2 = senha6 % 1000;
-        let t = (p1 * 29) ^ (p2 * 37);
-        t = t * 52711;
-        return t % 10000;
     }
 
     /* ════════════════════════════════════════
@@ -305,8 +287,6 @@
        TELA DO GERADOR
     ════════════════════════════════════════ */
 
-    let _currentLevel = 2;
-
     function initGeneratorScreen() {
         showScreen('screen-generator');
 
@@ -323,18 +303,6 @@
         });
         input6.addEventListener('keyup', e => { if (e.key === 'Enter') gerarSenha(); });
 
-        /* Input nível (1, 2 ou 3) */
-        const inputNivel = document.getElementById('input-nivel');
-        inputNivel.addEventListener('input', () => {
-            let v = inputNivel.value.replace(/\D/g, '').slice(0, 1);
-            if (v === '0') v = '';
-            if (v && parseInt(v, 10) > 3) v = '3';
-            inputNivel.value = v;
-            _currentLevel = v ? parseInt(v, 10) : 2;
-        });
-        inputNivel.addEventListener('keyup', e => { if (e.key === 'Enter') gerarSenha(); });
-        inputNivel.value = '2';
-
         /* Botões */
         document.getElementById('btn-gerar').addEventListener('click', gerarSenha);
     }
@@ -349,11 +317,7 @@
         }
 
         const senha6 = parseInt(val, 10);
-        let senha4;
-
-        if (_currentLevel === 1)      senha4 = geraSenhaNivel1(senha6);
-        else if (_currentLevel === 3) senha4 = geraSenhaNivel3(senha6);
-        else                          senha4 = geraSenhaNivel2(senha6);
+        const senha4 = geraSenhaNivel2(senha6);
 
         const result = String(senha4).padStart(4, '0');
         const display = document.getElementById('display-senha4');
@@ -363,8 +327,7 @@
         void display.offsetWidth;
         display.classList.add('pop');
 
-        const labels = { 1: 'Nível 1 (Usuário)', 2: 'Nível 2 (Técnico)', 3: 'Nível 3 (Admin)' };
-        setStatus('status-gerador', `✓ Senha gerada - ${labels[_currentLevel]}`, 'success');
+        setStatus('status-gerador', '✓ Senha gerada - Nível 2 (Técnico)', 'success');
     }
 
     /* ════════════════════════════════════════

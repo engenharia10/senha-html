@@ -2,7 +2,7 @@
    Alfatronic — Service Worker (PWA offline)
 ═══════════════════════════════════════════ */
 
-const CACHE_NAME = 'alfatronic-v12';
+const CACHE_NAME = 'alfatronic-v13';
 
 const ASSETS = [
     './',

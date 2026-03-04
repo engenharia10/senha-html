@@ -46,8 +46,8 @@
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
             overflow-y: auto;
-            padding: 16px;
-            padding-bottom: 40px;
+            padding: 10px;
+            padding-bottom: 10px;
             transition: opacity 0.25s ease, transform 0.25s ease;
         }
 
@@ -60,18 +60,18 @@
         /* ── Header ── */
         .header {
             text-align: center;
-            padding: 20px 0 14px;
+            padding: 12px 0 10px;
         }
 
         .header h1 {
-            font-size: 21px;
+            font-size: 34px;
             font-weight: 700;
         }
 
         .header .subtitle {
-            font-size: 13px;
+            font-size: 24px;
             color: var(--primary);
-            margin-top: 4px;
+            margin-top: 2px;
         }
 
         /* ── Cards ── */
@@ -143,10 +143,10 @@
         .btn {
             display: block;
             width: 100%;
-            padding: 17px;
+            padding: 11px;
             border: none;
             border-radius: 13px;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -179,15 +179,19 @@
             border-radius: 0;
             margin-bottom: 14px;
             padding: 14px;
+            min-height: 26vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         #screen-generator .card-title {
             color: #ffffff;
             text-transform: none;
             letter-spacing: 0;
-            font-size: 31px;
+            font-size: 38px;
             text-align: center;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .field-center {
@@ -197,7 +201,9 @@
         }
 
         .field-box {
-            width: 260px;
+            width: 46vw;
+            min-width: 340px;
+            max-width: 560px;
             max-width: 100%;
             background: #ececec;
             border: 1px solid #d5d5d5;
@@ -210,47 +216,32 @@
         }
 
         .field-box.input {
-            height: 78px;
-            font-size: 42px;
-            padding: 12px;
-        }
-
-        .field-box.output {
-            height: 78px;
-            font-size: 50px;
-            line-height: 78px;
-            color: #27AE60;
-        }
-
-        .field-box.level {
-            width: 190px;
-            height: 72px;
-            font-size: 46px;
+            height: 92px;
+            font-size: 54px;
             padding: 10px;
         }
 
-        .level-helper {
-            text-align: center;
-            color: #ecf0f1;
-            font-size: 13px;
-            margin-top: -6px;
-            margin-bottom: 10px;
+        .field-box.output {
+            height: 92px;
+            font-size: 58px;
+            line-height: 92px;
+            color: #27AE60;
         }
 
         /* ── Status message ── */
         .status-msg {
             text-align: center;
-            font-size: 13px;
+            font-size: 28px;
             color: var(--text-muted);
-            padding: 10px 8px 4px;
-            min-height: 38px;
+            padding: 8px 8px 2px;
+            min-height: 44px;
         }
 
         .status-fixed {
             text-align: center;
             color: var(--success);
-            font-size: 17px;
-            margin-top: 2px;
+            font-size: 30px;
+            margin-top: 8px;
         }
 
         .status-msg.success { color: var(--success); }
@@ -340,6 +331,51 @@
             padding: 13px;
             font-size: 13px;
         }
+
+        @media (max-height: 760px) {
+            #screen-generator.screen {
+                padding-top: 6px;
+                padding-bottom: 6px;
+            }
+
+            #screen-generator .header {
+                padding: 4px 0 4px;
+            }
+
+            #screen-generator .card {
+                margin-bottom: 8px;
+                padding: 8px;
+                min-height: 180px;
+            }
+
+            #screen-generator .header h1 {
+                font-size: 28px;
+            }
+
+            #screen-generator .header .subtitle {
+                font-size: 19px;
+            }
+
+            #screen-generator .card-title {
+                font-size: 26px;
+                margin-bottom: 8px;
+            }
+
+            #screen-generator .field-box.input,
+            #screen-generator .field-box.output {
+                height: 68px;
+                font-size: 40px;
+                line-height: 68px;
+            }
+
+            #screen-generator .status-fixed {
+                font-size: 19px;
+            }
+
+            #screen-generator .status-msg {
+                font-size: 18px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -425,25 +461,8 @@
             </div>
         </div>
 
-        <div class="card">
-            <div class="card-title">Nível Senha (1, 2 ou 3):</div>
-            <div class="level-helper">1=Usuário | 2=Técnico | 3=Admin</div>
-            <div class="field-center">
-                <input
-                    type="tel"
-                    inputmode="numeric"
-                    pattern="[0-9]*"
-                    id="input-nivel"
-                    class="field-box level"
-                    maxlength="1"
-                    value="2"
-                    autocomplete="off"
-                >
-            </div>
-        </div>
-
         <div class="status-fixed">✓ Sistema Licenciado</div>
-        <div class="status-msg success" id="status-gerador">✓ Digite a senha e gere o nível desejado</div>
+        <div class="status-msg success" id="status-gerador"></div>
 
     </div>
 
