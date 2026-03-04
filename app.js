@@ -327,7 +327,7 @@
         void display.offsetWidth;
         display.classList.add('pop');
 
-        setStatus('status-gerador', '✓ Senha gerada - Nível 2 (Técnico)', 'success');
+        setStatus('status-gerador', '✓ Senha gerada com Sucesso', 'success');
     }
 
     /* ════════════════════════════════════════
@@ -359,3 +359,4 @@
             });
         }
     }
+
