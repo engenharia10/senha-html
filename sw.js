@@ -1,10 +1,13 @@
-const CACHE_NAME = 'senha-v1';
+const CACHE_NAME = 'senha-v2';
 const ASSETS = [
+  './',
   './index.html',
+  './visualizar.html',
   './manifest.json',
   './icon-192.png',
   './icon-512.png',
-  './app.js'
+  './app.js',
+  './device-code-fallback.js'
 ];
 
 self.addEventListener('install', event => {
