@@ -1,4 +1,4 @@
-const CACHE_NAME = 'senha-v2';
+const CACHE_NAME = 'senha-v3';
 const ASSETS = [
   './',
   './index.html',
