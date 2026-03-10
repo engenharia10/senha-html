@@ -265,6 +265,24 @@
         }
 
         /* ── Footer link ── */
+        .footer-link {
+            display: flex;
+            justify-content: center;
+            padding: 6px 0 2px;
+        }
+
+        .footer-link a {
+            color: var(--text-muted);
+            font-size: 12px;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: color 0.15s, border-color 0.15s;
+        }
+
+        .footer-link a:hover {
+            color: var(--text);
+            border-color: var(--text-muted);
+        }
         /* ── Toast ── */
         .toast {
             position: fixed;
@@ -438,6 +456,14 @@
             Envie o Código de Ativação para o suporte e aguarde a Contra-Senha
         </div>
 
+        <div class="footer-link">
+            <a href="./visualizar.html">Pagina de links</a>
+        </div>
+
+        <div class="footer-link">
+            <a href="https://github.com/engenharia10/senha-html" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+
     </div>
 
     <!-- ══════════════════════════════════════
@@ -479,6 +505,14 @@
 
         <div class="status-fixed">✓ Sistema Licenciado</div>
         <div class="status-msg success" id="status-gerador"></div>
+
+        <div class="footer-link">
+            <a href="./visualizar.html">Pagina de links</a>
+        </div>
+
+        <div class="footer-link">
+            <a href="https://github.com/engenharia10/senha-html" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
 
     </div>
 
