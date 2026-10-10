@@ -5,8 +5,8 @@
   "description": "Sistema de licenciamento e geração de senhas Alfatronic",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#2C3E50",
-  "theme_color": "#2C3E50",
+  "background_color": "#E3EAF2",
+  "theme_color": "#E3EAF2",
   "orientation": "portrait",
   "icons": [
     {
